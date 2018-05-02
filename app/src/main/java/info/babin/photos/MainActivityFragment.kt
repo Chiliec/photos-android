@@ -2,7 +2,7 @@ package info.babin.photos
 
 import android.support.v4.app.Fragment
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +16,8 @@ class MainActivityFragment : Fragment() {
 
         val recyclerView = fragment.findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.setHasFixedSize(true)
-        val layoutManager = LinearLayoutManager(this.context)
+        val numberOfColumns = 2
+        val layoutManager = GridLayoutManager(this.context, numberOfColumns)
         recyclerView.layoutManager = layoutManager
         val adapter = PhotosAdapter(arrayOf(
                 "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=350",
