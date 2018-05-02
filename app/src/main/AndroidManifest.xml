@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="info.babin.photos">
 
+    <!-- for doing external requests and downloading images -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- for monitoring connectivity status and restart failed requests -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- for caching images -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,13 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DetailActivity"
+            android:label="@string/title_activity_detail"></activity>
     </application>
-
-    <!-- for doing external requests and downloading images -->
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <!-- for monitoring connectivity status and restart failed requests -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <!-- for caching images -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 </manifest>
