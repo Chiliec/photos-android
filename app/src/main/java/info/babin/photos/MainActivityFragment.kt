@@ -18,7 +18,12 @@ class MainActivityFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         val layoutManager = LinearLayoutManager(this.context)
         recyclerView.layoutManager = layoutManager
-        val adapter = PhotosAdapter(arrayOf("123", "321"))
+        val adapter = PhotosAdapter(arrayOf(
+                "https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=350",
+                "https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350",
+                "https://images.pexels.com/photos/209037/pexels-photo-209037.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350",
+                "https://images.pexels.com/photos/730896/pexels-photo-730896.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350",
+                "https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350"))
         recyclerView.adapter = adapter
 
         return fragment

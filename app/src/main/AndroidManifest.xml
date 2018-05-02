@@ -21,4 +21,11 @@
         </activity>
     </application>
 
+    <!-- for doing external requests and downloading images -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- for monitoring connectivity status and restart failed requests -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- for caching images -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 </manifest>
