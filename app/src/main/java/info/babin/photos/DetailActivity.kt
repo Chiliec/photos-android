@@ -19,6 +19,7 @@ class DetailActivity : Activity() {
                 .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(image)
+            image.setOnClickListener { this.onBackPressed() }
         }
     }
 
