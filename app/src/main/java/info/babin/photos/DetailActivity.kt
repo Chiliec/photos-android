@@ -20,6 +20,7 @@ class DetailActivity : Activity() {
                 .load(url)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .centerCrop()
+                .placeholder(ColorDrawable(Color.GRAY))
                 .error(ColorDrawable(Color.RED))
                 .into(image)
             image.setOnClickListener { this.onBackPressed() }

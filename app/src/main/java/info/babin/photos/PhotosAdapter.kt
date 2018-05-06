@@ -41,6 +41,7 @@ class PhotosAdapter(var photos: List<PhotoItem>) : RecyclerView.Adapter<PhotosAd
             .load(previewUrl)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .centerCrop()
+            .placeholder(ColorDrawable(Color.GRAY))
             .error(ColorDrawable(Color.RED))
             .into(holder.imageView)
 
