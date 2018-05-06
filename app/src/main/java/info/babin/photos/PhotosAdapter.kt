@@ -2,6 +2,8 @@ package info.babin.photos
 
 import android.content.Intent
 import android.content.res.Resources
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
-class PhotosAdapter(private val photos: Array<String>) : RecyclerView.Adapter<PhotosAdapter.ViewHolder>() {
+class PhotosAdapter(var photos: List<PhotoItem>) : RecyclerView.Adapter<PhotosAdapter.ViewHolder>() {
 
     class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         val imageView = v.findViewById(R.id.imageView) as ImageView
@@ -33,14 +35,17 @@ class PhotosAdapter(private val photos: Array<String>) : RecyclerView.Adapter<Ph
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val url = photos[position]
-        holder.imageUrl = url
+        val previewUrl = photos[position].preview
         GlideApp
             .with(holder.imageView)
-            .load(url)
-            .centerCrop()
+            .load(previewUrl)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .centerCrop()
+            .error(ColorDrawable(Color.RED))
             .into(holder.imageView)
+
+        val imageUrl = photos[position].file
+        holder.imageUrl = imageUrl
     }
 
     override fun getItemCount(): Int {

@@ -2,6 +2,8 @@ package info.babin.photos
 
 import android.os.Bundle
 import android.app.Activity
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.widget.ImageView
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 
@@ -16,11 +18,11 @@ class DetailActivity : Activity() {
             GlideApp
                 .with(image)
                 .load(url)
-                .centerCrop()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .centerCrop()
+                .error(ColorDrawable(Color.RED))
                 .into(image)
             image.setOnClickListener { this.onBackPressed() }
         }
     }
-
 }
